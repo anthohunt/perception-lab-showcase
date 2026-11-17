@@ -4,7 +4,13 @@
 
 **Un casque Meta Quest qui sert de capteur : sa caméra, son micro et les mouvements du corps sont enregistrés sur un serveur et relus dans un tableau de bord, pour donner des données réelles à la mémoire d'un agent d'IA.**
 
+[![Le tableau de bord XR Agent relit une session Quest 3 : la caméra passthrough montre les mains de la personne qui porte le casque, puis la page descend vers les panneaux du visage et des articulations des mains (version anglaise, cliquer pour la vidéo complète)](docs/demo.gif)](https://drive.google.com/file/d/160QcgVaUeIeIJBzmruf7TbSt0qzEYZ25/view)
+
+<details><summary>Version française</summary>
+
 [![Le tableau de bord XR Agent relit une session Quest 3 : la caméra passthrough montre les mains de la personne qui porte le casque, puis la page descend vers les panneaux du visage et des articulations des mains (cliquer pour la vidéo complète)](docs/demo.fr.gif)](https://drive.google.com/file/d/150wWVXfFiRMC0FyEXY2cNvo6CEBMar6s/view)
+
+</details>
 
 *Enregistrée sur un Quest 3 le 24 septembre 2026. [Vidéo complète (0:51)](https://drive.google.com/file/d/150wWVXfFiRMC0FyEXY2cNvo6CEBMar6s/view)*
 
