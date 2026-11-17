@@ -1,46 +1,36 @@
 **English** · [Français](README.fr.md)
 
-**Anthony Hunt** · [Project page on ingevision.cloud](https://ingevision.cloud/?lang=en&p=xr-agent) · [LinkedIn](https://www.linkedin.com/in/anthony-hunt-3948a9196) · [GitHub profile](https://github.com/anthohunt)
-
-> Showcase repository: the code and data of this project are private; this README describes it.
-
 # Perception Lab
 
-A test bench that records what a Meta Quest headset sees, hears and measures, and passes it to an agent with a temporal memory.
+**A Meta Quest headset used as a sensor: its camera, microphone, head, hands and face are recorded on a server and replayed in a dashboard, as real data for an agent's memory.**
 
-## The problem
+[![The XR Agent dashboard replaying a Quest 3 session: the passthrough camera shows the wearer's hands, then the face and hand-joint panels move in step (click for the full video)](docs/demo.gif)](https://drive.google.com/file/d/160QcgVaUeIeIJBzmruf7TbSt0qzEYZ25/view)
 
-Work on agent memory in virtual reality often starts from hand-written data, for lack of real capture. This bench provides real data, taken from the headset, to research teams at an engineering school. The goal is to learn what a headset actually delivers, stream by stream. It is a tool for knowledge, not a product.
+*The real dashboard replaying a session recorded on a Quest 3 on 24 September 2026. [Full video (0:51)](https://drive.google.com/file/d/160QcgVaUeIeIJBzmruf7TbSt0qzEYZ25/view)*
 
-## How it works
+## Using it
 
-- The headset acts as a sensor: a Unity module, which can be embedded in a VR application, sends the passthrough camera video, microphone audio, head, hands, body, gaze and face.
-- The server receives the data in chunks over HTTPS and relays it live over WebSocket.
-- A web dashboard starts and stops recordings, sets the rate and replays sessions.
-- The live view stays at the headset's rate; when recording, the server keeps only the chosen rate (1 to 30 per second).
-- On the memory side, one frame every 2 seconds is described by a vision model, then added to a time-stamped knowledge graph.
+- **Capture.** A Unity module inside the VR app sends the passthrough camera (Quest 3) or the screen (Quest Pro), the microphone, head, hands, body, gaze and face.
+- **Live view.** The dashboard follows a headset at its own rate, 72 samples per second, with the video about 1.9 s behind.
+- **Recording.** Started and stopped from the dashboard; the server keeps 1 to 30 samples and video frames per second, while the live view stays complete.
+- **Replay.** Play, frame-by-frame steps, scrubbing and speed; each session exports as an archive described by its README, and an API serves the raw blocks.
+- **In other apps.** The HITeC training app carries the module in its test builds: recordings started remotely and a feedback button. The dashboard also opens per headset inside QuestFleet.
+- **Memory.** A separate service has a vision model describe one frame every 2 s and adds it to a time-stamped knowledge graph.
 
-## What is built
+## Architecture
 
-In progress, exploration phase.
+![Architecture: the researcher's browser starts, stops and sets the rate on the capture server, which exchanges data blocks and orders with the Unity app on the Meta Quest and sends back live view and replay; Meta HMS installs the app and its config; a memory service (Graphiti, Groq vision) is meant to receive frames from the headset, not wired yet](docs/architecture.svg)
 
-- Capture service running; application distributed to nine test headsets, installation confirmed on three.
-- Live view measured at 72 samples per second, displayed video delay of about 1.9 s.
-- First recording on Quest 3: 30 s, 592 chunks, no loss.
-- Lossless compressed storage: 4.6 GB reduced to 0.73 GB; disk space capped at 25 GB.
-- Memory service deployed, 7 out of 7 tests passing.
-- Still to do: wire continuous capture between the VR application and the memory service, and test on a headset the module's integration into a training application.
+## Status
 
-## What is public
+- **Running** on the school's server since September 2026, behind its proxy; data on a volume capped at 25 GB.
+- **Measured in September 2026.** First Quest 3 recording: 30 s, 592 blocks, no loss. Lossless compression: 4.6 GB down to 0.73 GB.
+- **Headsets.** The app went to nine test headsets through HMS, installation confirmed on three. Since November 2026 the module runs in HITeC test builds, with video off.
+- **Memory service** deployed in July 2026, 7 out of 7 tests passing; capture is not yet wired to it.
+- **Stack.** Unity 6, Meta XR Core SDK, OpenXR; Android module in Java (Camera2, MediaProjection); Node.js, WebSocket, ffmpeg, brotli; FastAPI, Graphiti, FalkorDB, Groq; Docker. Dashboard in French.
 
-This showcase is public; the code, the server and the recorded data remain private.
+---
 
-## Tech stack
+**Anthony Hunt** · [ingevision.cloud](https://ingevision.cloud/?lang=en&p=xr-agent) · [LinkedIn](https://www.linkedin.com/in/anthony-hunt-3948a9196) · [GitHub](https://github.com/anthohunt)
 
-- Unity 6, Meta XR Core SDK, OpenXR
-- Android module in Java (Camera2, MediaProjection), H.264 video
-- Node.js server, WebSocket, ffmpeg, gzip and brotli compression
-- Memory service in Python: FastAPI, Graphiti, FalkorDB
-- Groq (qwen3.6-27b vision model)
-- Local sentence-transformers embeddings (all-MiniLM-L6-v2)
-- Docker; distribution to headsets through Meta Horizon Managed Services
+The code is private.
