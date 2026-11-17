@@ -19,7 +19,13 @@
 
 ## Architecture
 
+![Architecture : le navigateur du chercheur lance, arrête et règle la fréquence sur le serveur de capture, qui échange blocs de données et commandes avec l'appli Unity du Meta Quest et renvoie le direct et la relecture ; Meta HMS installe l'appli et sa configuration ; un service de mémoire (Graphiti, vision Groq) doit recevoir les images du casque, pas encore câblé](docs/architecture.svg)
+
+<details><summary>Diagramme en français</summary>
+
 ![Architecture : le navigateur du chercheur lance, arrête et règle la fréquence sur le serveur de capture, qui échange blocs de données et commandes avec l'appli Unity du Meta Quest et renvoie le direct et la relecture ; Meta HMS installe l'appli et sa configuration ; un service de mémoire (Graphiti, vision Groq) doit recevoir les images du casque, pas encore câblé](docs/architecture.fr.svg)
+
+</details>
 
 ## État
 

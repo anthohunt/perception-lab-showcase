@@ -21,6 +21,12 @@
 
 ![Architecture: the researcher's browser starts, stops and sets the rate on the capture server, which exchanges data chunks and commands with the Unity app on the Meta Quest and sends back live view and replay; Meta HMS installs the app and its config; a memory service (Graphiti, Groq vision) is meant to receive frames from the headset, not wired yet](docs/architecture.svg)
 
+<details><summary>French version</summary>
+
+![Architecture : le navigateur du chercheur lance, arrête et règle la fréquence sur le serveur de capture, qui échange blocs de données et commandes avec l'appli Unity du Meta Quest et renvoie le direct et la relecture ; Meta HMS installe l'appli et sa configuration ; un service de mémoire (Graphiti, vision Groq) doit recevoir les images du casque, pas encore câblé](docs/architecture.fr.svg)
+
+</details>
+
 ## Status
 
 - **Running** on the school's server since September 2026; data on a volume capped at 25 GB.
