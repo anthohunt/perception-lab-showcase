@@ -4,15 +4,15 @@
 
 **A Meta Quest headset used as a sensor: its camera, microphone and body tracking are recorded on a server and replayed in a dashboard, to give an AI agent's memory real data.**
 
-[![The XR Agent dashboard replaying a Quest 3 session: the passthrough camera shows the wearer's hands, then the page scrolls to the face and hand-joint panels (click for the full video)](docs/demo.gif)](https://drive.google.com/file/d/160QcgVaUeIeIJBzmruf7TbSt0qzEYZ25/view)
+![The XR Agent dashboard replaying a Quest 3 session: the passthrough camera shows the wearer's hands, then the page scrolls to the face and hand-joint panels](docs/demo.gif)
 
 <details><summary>French version</summary>
 
-[![Le tableau de bord XR Agent relit une session Quest 3 : la caméra passthrough montre les mains de la personne qui porte le casque, puis la page descend vers les panneaux du visage et des articulations des mains (cliquer pour la vidéo complète)](docs/demo.fr.gif)](https://drive.google.com/file/d/150wWVXfFiRMC0FyEXY2cNvo6CEBMar6s/view)
+![Le tableau de bord XR Agent relit une session Quest 3 : la caméra passthrough montre les mains de la personne qui porte le casque, puis la page descend vers les panneaux du visage et des articulations des mains](docs/demo.fr.gif)
 
 </details>
 
-*Recorded on a Quest 3 on 24 September 2026; dashboard in French. [Full video (0:51)](https://drive.google.com/file/d/160QcgVaUeIeIJBzmruf7TbSt0qzEYZ25/view)*
+*Recorded on a Quest 3 on 24 September 2026; dashboard in French.*
 
 ## Using it
 
